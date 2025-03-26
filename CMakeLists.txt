@@ -9,4 +9,7 @@ add_executable(CppMiniGame main.cpp
         GuessNumber/GuessNumber.cpp
         GuessNumber/GuessNumber.h)
 
+set(CMAKE_EXE_LINKER_FLAGS -static)
+
 target_include_directories(CppMiniGame PUBLIC GameFrame GuessNumber)
+
