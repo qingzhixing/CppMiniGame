@@ -108,6 +108,8 @@ static void draw_map() {
 }
 
 static void end_game() {
+    std::cout << "GAME OVER" << std::endl;
+    std::cout << "Length of snake: " << snake_body.size() << std::endl;
 }
 
 static void handle_input() {
@@ -169,6 +171,12 @@ static void clear_screen() {
 
 
 void Snakes::run() {
+    clear_screen();
+    std::cout << "Welcome to Snakes!" << std::endl;
+    std::cout << "Control:" << std::endl;
+    std::cout << "\tMove: W/A/S/D" << std::endl;
+    std::cout << "\tQuit:" << std::endl;
+    system("pause");
     std::cout << "Snakes starting..." << std::endl;
     init_map();
     std::cout << "Map initialized." << std::endl;
