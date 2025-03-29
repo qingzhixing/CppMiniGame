@@ -63,9 +63,7 @@ int main() {
     if (selected_game != nullptr) {
         selected_game->run();
     }
-    std::cout << "Thanks for playing!";
-    std::cout.flush(); // 刷新缓冲区，输出缓冲区内容
-    getchar();
+    std::cout << "Thanks for playing!" << std::endl;
     getchar();
     return 0;
 }
