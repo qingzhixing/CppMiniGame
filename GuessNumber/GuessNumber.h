@@ -9,7 +9,7 @@
 
 class GuessNumber final : public GameFrame {
 public:
-    GuessNumber() = default;
+    explicit GuessNumber() : GameFrame("GuessNumber") {}
     ~GuessNumber() override = default;
 
 public:

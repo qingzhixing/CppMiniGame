@@ -4,13 +4,22 @@
 
 #ifndef GAME_FRAME_H
 #define GAME_FRAME_H
+#include <string>
+#include <utility>
+#include <vector>
 
 
 class GameFrame {
-public:
-    virtual ~GameFrame() = default;
-    virtual void run() = 0;
-};
 
+public:
+    explicit GameFrame(std::string _name);
+
+    virtual ~GameFrame() = default;
+
+    virtual void run();
+
+public:
+    std::string name;
+};
 
 #endif // GAME_FRAME_H
