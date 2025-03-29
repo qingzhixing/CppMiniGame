@@ -7,7 +7,9 @@ add_executable(CppMiniGame main.cpp
         GameFrame/GameFrame.h
         GuessNumber/GuessNumber.cpp
         GuessNumber/GuessNumber.h
-        GameFrame/GameFrame.cpp)
+        GameFrame/GameFrame.cpp
+        Snakes/Snakes.cpp
+        Snakes/Snakes.h)
 
 set(CMAKE_EXE_LINKER_FLAGS -static)
 

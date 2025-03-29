@@ -1,9 +1,23 @@
 #include <format>
 #include <iostream>
 #include <vector>
+#include <windows.h>
 
 #include "GameFrame.h"
 #include "GuessNumber.h"
+#include "Snakes/Snakes.h"
+
+void EnableUTF8Console() {
+    // 设置控制台输入输出编码为 UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
+    // 解决 Windows 下中文输出乱码问题
+    std::ios::sync_with_stdio(false);
+    std::locale::global(std::locale(""));
+    std::wcout.imbue(std::locale(""));
+    std::wcin.imbue(std::locale(""));
+}
 
 std::vector<GameFrame *> game_frames{};
 
@@ -15,9 +29,16 @@ void RegisterGameFrame(GameFrame *game_frame) {
 }
 
 int main() {
+
     std::cout << "Cpp Mini Game [@qingzhixing]" << std::endl;
 
+    EnableUTF8Console();
+
+    // 使用宽字符输出
+    std::wcout << L"跨平台UTF-8测试: 你好世界! 🌍" << std::endl;
+
     RegisterGameFrame(new GuessNumber());
+    RegisterGameFrame(new Snakes());
 
     std::cout << "Please select a game to play:" << std::endl;
 
@@ -43,5 +64,8 @@ int main() {
         selected_game->run();
     }
     std::cout << "Thanks for playing!";
+    std::cout.flush(); // 刷新缓冲区，输出缓冲区内容
+    getchar();
+    getchar();
     return 0;
 }
